@@ -1,25 +1,19 @@
 {
-  "name": "ocr-server",
+  "name": "ocr-multilingual",
   "version": "1.0.0",
-  "type": "module",
-  "description": "Backend server for OCR processing",
-  "main": "server.js",
+  "description": "OCR software supporting Gujarati, English, and Hindi",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
   "scripts": {
-    "dev": "node --watch server.js",
-    "start": "node server.js",
-    "build": "echo 'Backend build complete'",
-    "prod": "NODE_ENV=production node server.js"
-  },
-  "dependencies": {
-    "express": "^4.18.2",
-    "multer": "^1.4.5-lts.1",
-    "cors": "^2.8.5",
-    "dotenv": "^16.3.1",
-    "tesseract.js": "^5.0.1",
-    "pdf-parse": "^1.1.1",
-    "sharp": "^0.33.0"
+    "dev": "concurrently \"npm run dev --workspace=server\" \"npm run dev --workspace=client\"",
+    "build": "npm run build --workspace=client && npm run build --workspace=server",
+    "start": "npm start --workspace=server",
+    "prod": "npm run build && npm run prod --workspace=server"
   },
   "devDependencies": {
-    "nodemon": "^3.0.1"
+    "concurrently": "^8.2.0"
   }
 }
