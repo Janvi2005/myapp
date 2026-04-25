@@ -1,0 +1,25 @@
+{
+  "name": "ocr-server",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Backend server for OCR processing",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node --watch server.js",
+    "start": "node server.js",
+    "build": "echo 'Backend build complete'",
+    "prod": "NODE_ENV=production node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "multer": "^1.4.5-lts.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "tesseract.js": "^5.0.1",
+    "pdf-parse": "^1.1.1",
+    "sharp": "^0.33.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
